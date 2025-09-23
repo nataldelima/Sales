@@ -17,6 +17,12 @@ public class HomeController : Controller
     {
         return View();
     }
+    public IActionResult About()
+    {
+        ViewData["Message"] = "Salles Web MVC App from C# Course";
+        ViewData["Student"] = "Natal Lima";
+        return View();
+    }
 
     public IActionResult Privacy()
     {
