@@ -1,9 +1,15 @@
+using System.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Sales.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<SalesContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("SalesContext") ?? throw new InvalidOperationException("Connection string 'SalesContext' not found.")));
+    options.UseMySql(
+        builder.Configuration.GetConnectionString("SalesContext") ??
+        throw new InvalidOperationException("Connection string 'SalesContext' not found."),
+        ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("SalesContext"))));
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
