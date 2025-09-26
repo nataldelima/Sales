@@ -16,5 +16,15 @@ public class SellerService
     {
         return _context.Seller.ToList();
     }
+
+    public void Insert(Seller obj)
+    {
+        _context.Add(obj);
+        _context.SaveChanges();
+    }
     
+    public List<Department> FindAllDepartments()
+    {
+        return _context.Department.ToList();
+    }
 }
