@@ -8,8 +8,8 @@ public class Seller
     public DateTime BirthDate { get; set; }
     public double BaseSalary { get; set; }
     
-    public int? DepartmentId { get; set; }
     public Department Department { get; set; }
+    public int DepartmentId { get; set; }
     public ICollection<SalesRecords> Sales { get; set; } = new List<SalesRecords>();
 
     public Seller()

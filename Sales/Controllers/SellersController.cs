@@ -23,7 +23,6 @@ public class SellersController : Controller
     
     public IActionResult Create()
     {
-        ViewBag.Departments = _sellerService.FindAllDepartments();
         return View();
     }
 
@@ -31,12 +30,7 @@ public class SellersController : Controller
     [ValidateAntiForgeryToken]
     public IActionResult Create(Seller seller)
     {
-        if (!ModelState.IsValid)
-        {
-            Console.WriteLine("ModelState inválido!");
-            ViewBag.Departments = _sellerService.FindAllDepartments();
-            return View(seller);
-        }
+       
         _sellerService.Insert(seller);
         return RedirectToAction(nameof(Index));
     }
