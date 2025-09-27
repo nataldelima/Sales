@@ -8,38 +8,38 @@
 <div>
     <h3>Seller</h3>
     <hr/>
-    <dl class="=dl-horizontal">
-        <dt>
+    <div class="row mb-2">
+        <div class="col-sm-3 font-weight-bold">
             @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd>
+        </div>
+        <div class="col-sm-9">
             @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt>
+        </div>
+        <div class="col-sm-3 font-weight-bold">
             @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd>
+        </div>
+        <div class="col-sm-9">
             @Html.DisplayFor(model => model.Email)
-        </dd>
-        <dt>
+        </div>
+        <div class="col-sm-3 font-weight-bold">
             @Html.DisplayNameFor(model => model.BirthDate)
-        </dt>
-        <dd>
+        </div>
+        <div class="col-sm-9">
             @Html.DisplayFor(model => model.BirthDate)
-        </dd>
-        <dt>
+        </div>
+        <div class="col-sm-3 font-weight-bold">
             @Html.DisplayNameFor(model => model.BaseSalary)
-        </dt>
-        <dd>
+        </div>
+        <div class="col-sm-9">
             @Html.DisplayFor(model => model.BaseSalary)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Department.Name)
-        </dt>
-        <dd>
+        </div>
+        <div class="col-sm-3 font-weight-bold">
+            @Html.DisplayNameFor(model => model.Department)
+        </div>
+        <div class="col-sm-9">
             @Html.DisplayFor(model => model.Department.Name)
-        </dd>
-    </dl>
+        </div>
+    </div>
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>

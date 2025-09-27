@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace Sales.Models;
 
 public class Seller
@@ -7,7 +9,6 @@ public class Seller
     public string Email { get; set; }
     public DateTime BirthDate { get; set; }
     public double BaseSalary { get; set; }
-    
     public Department Department { get; set; }
     public int DepartmentId { get; set; }
     public ICollection<SalesRecords> Sales { get; set; } = new List<SalesRecords>();
