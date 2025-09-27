@@ -29,8 +29,4 @@
       <_ContentIncludedByDefault Remove="Views\Departments\Page1.cshtml" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Views\Sellers\" />
-    </ItemGroup>
-
 </Project>
