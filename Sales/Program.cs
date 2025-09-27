@@ -1,4 +1,6 @@
 using System.Configuration;
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Sales.Data;
@@ -39,6 +41,15 @@ if (app.Environment.IsDevelopment())
 }
 
 // Configure the HTTP request pipeline.
+var enUS = new CultureInfo("en-US");
+var localizationOption = new RequestLocalizationOptions()
+{
+    DefaultRequestCulture = new RequestCulture(enUS),
+    SupportedCultures = new List<CultureInfo> { enUS },
+    SupportedUICultures = new List<CultureInfo> { enUS }
+};
+
+app.UseRequestLocalization(localizationOption);
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
