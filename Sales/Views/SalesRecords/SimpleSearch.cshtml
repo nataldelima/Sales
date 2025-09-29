@@ -5,29 +5,29 @@
 
 <h1>@ViewData["Title"]</h1>
 
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
     <div class="container-fluid">
-        <form class="navbar-form navbar-left" role="search">
+        <form class="d-flex align-items-end gap-2" role="search">
             <div class="form-group">
-                <label for="minDate" class="control-label">Min Date</label>
+                <label for="minDate" class="form-label">Min Date</label>
                 <input type="date" name="minDate" value=@ViewData["minDate"] class="form-control"/>
             </div>
             <div class="form-group">
-                <label for="maxDate" class="control-label">Max Date</label>
+                <label for="maxDate" class="form-label">Max Date</label>
                 <input type="date" name="maxDate" value=@ViewData["maxDate"] class="form-control"/>
             </div>
             <button type="submit" class="btn btn-primary">Filter</button>
         </form>
     </div>
 </nav>
-<div class="panel panel-primary">
-    <div class="panel-heading">
-        <h3 class="panel-title">Total sales=@Model.Sum(obj => obj.Amount).ToString("F2")</h3>
+<div class="card border-primary mb-3">
+    <div class="card-header bg-primary text-white">
+        Total sales = @Model.Sum(obj => obj.Amount).ToString("C2")
     </div>
-    <div class="panel-body">
+    <div class="card-body">
         <table class="table table-stripped table-hover">
-            <thead>
-            <tr class="success">
+            <thead class="table-success">
+            <tr>
                 <th>@Html.DisplayNameFor(model => model.Id)</th>
                 <th>@Html.DisplayNameFor(model => model.Date)</th>
                 <th>@Html.DisplayNameFor(model => model.Seller)</th>
@@ -49,10 +49,6 @@
                 </tr>
             }
             </tbody>
-
         </table>
-
     </div>
-
-
 </div>
