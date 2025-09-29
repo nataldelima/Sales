@@ -68,8 +68,17 @@ public class SellersController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Delete(int id)
     {
-        await _sellerService.RemoveAsync(id);
-        return RedirectToAction(nameof(Index));
+        try
+        {
+            await _sellerService.RemoveAsync(id);
+            return RedirectToAction(nameof(Index));
+        }
+        catch (IntegrityException e)
+        {
+            return RedirectToAction(nameof(Error), new { message = e.Message });;
+        }
+        
+        
     }
 
     public async Task<IActionResult> Details(int? id)
@@ -120,13 +129,14 @@ public class SellersController : Controller
 
         if (id != seller.Id)
         {
-            return BadRequest();
+            return RedirectToAction(nameof(Error), new { message = "Id mismatch!" });
         }
 
         try
         {
             await _sellerService.UpdateAsync(seller);
-            return RedirectToAction(nameof(Error), new { message = "Id mismatch!" });
+            return RedirectToAction(nameof(Index));
+            
         }
         catch (NotFoundException e)
         {
